@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Modern Portfolio Landing Page</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        darkMode: 'class',
+        theme: {
+          extend: {
+            colors: {
+              accent: {
+                400: '#60a5fa',
+                500: '#3b82f6',
+                600: '#2563eb'
+              }
+            },
+            boxShadow: {
+              glow: '0 0 25px rgba(59,130,246,0.35)'
+            }
+          }
+        }
+      };
+    </script>
+    <style>
+      @keyframes float {
+        0%, 100% { transform: translateY(0px); }
+        50% { transform: translateY(-12px); }
+      }
+
+      @keyframes pulseGlow {
+        0%, 100% { box-shadow: 0 0 0 rgba(59,130,246,0.25); }
+        50% { box-shadow: 0 0 30px rgba(59,130,246,0.4); }
+      }
+
+      .float-anim { animation: float 5s ease-in-out infinite; }
+      .pulse-glow { animation: pulseGlow 3s ease-in-out infinite; }
+
+      .reveal {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: opacity 0.9s ease, transform 0.9s ease;
+      }
+
+      .reveal.show {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    </style>
+  </head>
+  <body class="bg-black text-slate-100 transition-colors duration-500 dark:bg-black dark:text-slate-100">
+    <div class="fixed inset-0 -z-10 overflow-hidden">
+      <div class="absolute -top-20 -left-20 h-72 w-72 rounded-full bg-accent-600/20 blur-3xl"></div>
+      <div class="absolute right-0 top-1/3 h-80 w-80 rounded-full bg-purple-600/20 blur-3xl"></div>
+      <div class="absolute left-1/3 bottom-0 h-72 w-72 rounded-full bg-cyan-500/20 blur-3xl"></div>
+    </div>
+
+    <header class="sticky top-0 z-50 border-b border-white/10 bg-black/65 backdrop-blur-lg">
+      <nav class="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
+        <a href="#hero" class="text-lg font-semibold tracking-wide">DevNova</a>
+        <ul class="hidden items-center gap-6 md:flex">
+          <li><a class="nav-link text-slate-300 transition hover:text-accent-400" href="#hero">Home</a></li>
+          <li><a class="nav-link text-slate-300 transition hover:text-accent-400" href="#skills">Skills</a></li>
+          <li><a class="nav-link text-slate-300 transition hover:text-accent-400" href="#projects">Projects</a></li>
+          <li><a class="nav-link text-slate-300 transition hover:text-accent-400" href="#footer">Contact</a></li>
+        </ul>
+        <div class="flex items-center gap-3">
+          <button id="themeToggle" class="rounded-full border border-white/15 px-3 py-2 text-sm transition hover:border-accent-500 hover:text-accent-400">Toggle Theme</button>
+          <button id="menuToggle" class="md:hidden rounded border border-white/20 px-3 py-2">☰</button>
+        </div>
+      </nav>
+      <div id="mobileMenu" class="hidden border-t border-white/10 px-6 py-4 md:hidden">
+        <div class="flex flex-col gap-3">
+          <a class="nav-link text-slate-300" href="#hero">Home</a>
+          <a class="nav-link text-slate-300" href="#skills">Skills</a>
+          <a class="nav-link text-slate-300" href="#projects">Projects</a>
+          <a class="nav-link text-slate-300" href="#footer">Contact</a>
+        </div>
+      </div>
+    </header>
+
+    <main class="mx-auto max-w-6xl px-6">
+      <section id="hero" class="reveal flex min-h-[85vh] flex-col items-center justify-center text-center">
+        <p class="mb-4 rounded-full border border-accent-500/40 px-4 py-1 text-sm text-accent-300">Creative Frontend Developer</p>
+        <h1 class="float-anim bg-gradient-to-r from-white via-accent-300 to-purple-300 bg-clip-text text-4xl font-extrabold leading-tight text-transparent sm:text-5xl md:text-6xl">Build Stunning Digital Experiences</h1>
+        <p class="mt-6 max-w-2xl text-base text-slate-300 sm:text-lg">I design and develop modern, lightning-fast, and interactive websites with elegant animations and a clean user experience.</p>
+        <a href="#projects" class="pulse-glow mt-8 inline-flex rounded-full bg-accent-500 px-6 py-3 font-semibold text-white transition hover:bg-accent-400">See My Work</a>
+      </section>
+
+      <section id="skills" class="reveal py-20">
+        <h2 class="mb-10 text-center text-3xl font-bold sm:text-4xl">Skills</h2>
+        <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+          <article class="rounded-2xl border border-white/10 bg-white/5 p-6 transition hover:-translate-y-1 hover:border-accent-500/60">
+            <h3 class="mb-2 text-xl font-semibold">HTML5</h3>
+            <p class="text-slate-300">Semantic structure and accessible markup best practices.</p>
+          </article>
+          <article class="rounded-2xl border border-white/10 bg-white/5 p-6 transition hover:-translate-y-1 hover:border-accent-500/60">
+            <h3 class="mb-2 text-xl font-semibold">Tailwind CSS</h3>
+            <p class="text-slate-300">Rapid, responsive, and utility-first UI development.</p>
+          </article>
+          <article class="rounded-2xl border border-white/10 bg-white/5 p-6 transition hover:-translate-y-1 hover:border-accent-500/60">
+            <h3 class="mb-2 text-xl font-semibold">JavaScript</h3>
+            <p class="text-slate-300">Smooth interactions, animations, and dynamic behaviors.</p>
+          </article>
+          <article class="rounded-2xl border border-white/10 bg-white/5 p-6 transition hover:-translate-y-1 hover:border-accent-500/60">
+            <h3 class="mb-2 text-xl font-semibold">Performance</h3>
+            <p class="text-slate-300">Optimized assets and speedy user experiences.</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="projects" class="reveal py-20">
+        <h2 class="mb-10 text-center text-3xl font-bold sm:text-4xl">Projects</h2>
+        <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+          <article class="group rounded-2xl border border-white/10 bg-gradient-to-br from-white/5 to-transparent p-5 transition hover:border-accent-500/60">
+            <div class="mb-4 h-36 rounded-xl bg-slate-800/80 transition group-hover:shadow-glow"></div>
+            <h3 class="text-xl font-semibold">Portfolio Pro</h3>
+            <p class="mt-2 text-slate-300">A personal portfolio with fluid transitions and crisp layouts.</p>
+          </article>
+          <article class="group rounded-2xl border border-white/10 bg-gradient-to-br from-white/5 to-transparent p-5 transition hover:border-accent-500/60">
+            <div class="mb-4 h-36 rounded-xl bg-slate-800/80 transition group-hover:shadow-glow"></div>
+            <h3 class="text-xl font-semibold">SaaS Landing</h3>
+            <p class="mt-2 text-slate-300">Conversion-focused landing page featuring interactive components.</p>
+          </article>
+          <article class="group rounded-2xl border border-white/10 bg-gradient-to-br from-white/5 to-transparent p-5 transition hover:border-accent-500/60">
+            <div class="mb-4 h-36 rounded-xl bg-slate-800/80 transition group-hover:shadow-glow"></div>
+            <h3 class="text-xl font-semibold">E-commerce UI</h3>
+            <p class="mt-2 text-slate-300">Modern storefront interface with polished micro-interactions.</p>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <footer id="footer" class="mt-16 border-t border-white/10 bg-black/70">
+      <div class="mx-auto flex max-w-6xl flex-col items-center justify-between gap-3 px-6 py-8 text-center text-slate-400 sm:flex-row sm:text-left">
+        <p>© 2026 DevNova. Crafted with passion.</p>
+        <a href="#hero" class="transition hover:text-accent-400">Back to top ↑</a>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
